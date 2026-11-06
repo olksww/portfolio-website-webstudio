@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="WebStudio — навчальний проєкт вебстудії: дизайн, адаптивна розробка та портфоліо."
+    />
+    <base href="../" />
+    <title>Портфоліо — WebStudio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="pages/portfolio.html#main">Перейти до вмісту</a>
+    <!-- Шапка сайту та навігація -->
+    <header class="header">
+      <div class="wrap header-inner">
+        <a class="logo" href="index.html"><span>Web</span>Studio</a
+        ><button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav"
+          aria-label="Відкрити меню"
+        >
+          ☰
+        </button>
+        <nav id="nav">
+          <a href="index.html">Студія</a
+          ><a aria-current="page" href="pages/portfolio.html">Портфоліо</a
+          ><a href="index.html#contact">Контакти</a>
+        </nav>
+        <button class="header-contact" data-brief>Обговорити проєкт</button>
+      </div>
+    </header>
+    <main id="main" class="portfolio wrap section">
+      <h1 class="section-title">Портфоліо</h1>
+      <p class="section-intro">Навчальні роботи. Від вебсайтів до візуального дизайну.</p>
+      <!-- Фільтри портфоліо -->
+      <div class="filters" role="group" aria-label="Фільтр проєктів">
+        <button data-filter="all" aria-pressed="true">Усі</button
+        ><button data-filter="web" aria-pressed="false">Веб-сайти</button
+        ><button data-filter="app" aria-pressed="false">Додатки</button
+        ><button data-filter="design" aria-pressed="false">Дизайн</button
+        ><button data-filter="marketing" aria-pressed="false">Маркетинг</button>
+      </div>
+      <p class="sr-only" id="results" aria-live="polite"></p>
+      <!-- Картки додаються з масиву projects у файлі app.js -->
+      <div class="project-grid" id="project-grid"></div>
+      <noscript>Для перегляду інтерактивних кейсів увімкніть JavaScript.</noscript>
+    </main>
+    <!-- Нижня частина сайту -->
+    <footer id="contact">
+      <div class="wrap footer-inner">
+        <div>
+          <a class="logo" href="index.html"><span>Web</span>Studio</a>
+          <p>Навчальний проєкт Олексія Сандульського.<br />Київ, Україна</p>
+        </div>
+        <div>
+          <h3>Є ідея для сайту?</h3>
+          <p>Почніть із короткого опису завдання.</p>
+          <button class="button" data-brief>Скласти бриф</button>
+        </div>
+        <div class="footer-note">
+          Оновлена версія першого проєкту.<br />Матеріали та команда — демонстраційні.<br />©
+          2026 WebStudio
+        </div>
+      </div>
+    </footer>
+    <!-- Діалог із описом проєкту -->
+    <dialog id="case-dialog" aria-labelledby="case-title">
+      <button class="close" aria-label="Закрити">×</button><img id="case-image" alt="" />
+      <div class="dialog-content">
+        <div class="section-label">НАВЧАЛЬНИЙ КЕЙС</div>
+        <h2 id="case-title"></h2>
+        <p id="case-description"></p>
+        <button class="button" data-brief>Скласти схожий бриф ↗</button>
+      </div>
+    </dialog>
+
+    <!-- Форма створення та завантаження брифу -->
+    <dialog id="brief-dialog" aria-labelledby="brief-title">
+      <button class="close" aria-label="Закрити">×</button>
+      <div class="dialog-content">
+        <div class="section-label">ДАВАЙТЕ ПОЧНЕМО</div>
+        <h2 id="brief-title">Ваша ідея.<br />Перший крок.</h2>
+        <p class="muted">
+          Демо-форма: створіть і завантажте бриф. Дані нікуди не надсилаються.
+        </p>
+        <form id="brief-form">
+          <label
+            >Ваше ім’я<input
+              name="name"
+              autocomplete="name"
+              required
+              maxlength="80"
+              placeholder="Як до вас звертатися?" /></label
+          ><label
+            >Email<input
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              maxlength="150"
+              placeholder="you@example.com" /></label
+          ><label
+            >Що створюємо?<select name="service">
+              <option>Веб-сайт</option>
+              <option>Додаток</option>
+              <option>Дизайн</option>
+              <option>Інше</option>
+            </select></label
+          ><label
+            >Кілька слів про ідею<textarea
+              name="idea"
+              required
+              minlength="10"
+              maxlength="3000"
+              rows="3"
+              placeholder="Завдання, побажання та бажаний термін"
+            ></textarea></label
+          ><button class="button" type="submit">Завантажити бриф <span>↓</span></button>
+          <p id="form-status" role="status"></p>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
